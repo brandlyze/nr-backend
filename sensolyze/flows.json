@@ -1,0 +1,2945 @@
+[
+    {
+        "id": "4697588.b2c87a8",
+        "type": "tab",
+        "label": "Startup",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d65a8426.853ab8",
+        "type": "tab",
+        "label": "restAPI (BlueUp)",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "faacba70.9a1ff8",
+        "type": "tab",
+        "label": "sendToGateway",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e8059bf0.7836a8",
+        "type": "tab",
+        "label": "setPrecence",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3c6b2ecc.9b50d2",
+        "type": "tab",
+        "label": "calcOcc_l5m",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f479bd17.19e48",
+        "type": "tab",
+        "label": "calcOcc_l1h",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "68b1d058.3256d",
+        "type": "tab",
+        "label": "calcOcc_today",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "84c4294e.246a88",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "240",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "c7b05f07.53f4b",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "b99c50ed.d9886",
+        "type": "ui_base",
+        "z": 0,
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "986144ea.b85468",
+        "type": "Cache",
+        "z": 0,
+        "name": "lastMotionStatus",
+        "defaultTtl": "",
+        "checkPeriod": ""
+    },
+    {
+        "id": "611c3519.eaac1c",
+        "type": "Cache",
+        "z": 0,
+        "name": "customerBMT",
+        "defaultTtl": "",
+        "checkPeriod": ""
+    },
+    {
+        "id": "e1311e7b.bb9de",
+        "type": "http in",
+        "z": "d65a8426.853ab8",
+        "name": "POST api/receive",
+        "url": "api/receive",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "108dc7da.37efe8",
+                "d4cde8cb.83dd68",
+                "113e1e45.3d1792"
+            ]
+        ]
+    },
+    {
+        "id": "108dc7da.37efe8",
+        "type": "function",
+        "z": "d65a8426.853ab8",
+        "name": "create response",
+        "func": "msg.payload = {\"id\": 123}\nmsg.statusCode = 200;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 60,
+        "wires": [
+            [
+                "82b4a51d.06a448"
+            ]
+        ]
+    },
+    {
+        "id": "82b4a51d.06a448",
+        "type": "json",
+        "z": "d65a8426.853ab8",
+        "name": "",
+        "pretty": false,
+        "x": 530,
+        "y": 60,
+        "wires": [
+            [
+                "8eb4d3c0.4f678"
+            ]
+        ]
+    },
+    {
+        "id": "8eb4d3c0.4f678",
+        "type": "http response",
+        "z": "d65a8426.853ab8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "691e2146.f738e",
+        "type": "link out",
+        "z": "d65a8426.853ab8",
+        "name": "sendToTB",
+        "links": [
+            "22566281.36020e"
+        ],
+        "x": 1195,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "aba24db7.591a7",
+        "type": "function",
+        "z": "d65a8426.853ab8",
+        "name": "++",
+        "func": "if ( (msg.i += 1) < msg.items.length ) return msg;\n",
+        "outputs": 1,
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "d4cde8cb.83dd68"
+            ]
+        ]
+    },
+    {
+        "id": "d4cde8cb.83dd68",
+        "type": "function",
+        "z": "d65a8426.853ab8",
+        "name": "for each item",
+        "func": "if( msg.i     === undefined ) msg.i = 0;\nif( msg.items === undefined ) msg.items = msg.payload;\n\nmsg.payload = msg.items[ msg.i ];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 180,
+        "wires": [
+            [
+                "aba24db7.591a7",
+                "2c5903f9.54a97c"
+            ]
+        ]
+    },
+    {
+        "id": "2c5903f9.54a97c",
+        "type": "function",
+        "z": "d65a8426.853ab8",
+        "name": "clean pipeline",
+        "func": "var newMsg = {};\nnewMsg = { payload: msg.payload};\nreturn newMsg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 180,
+        "wires": [
+            [
+                "e2ff0df4.8f11e"
+            ]
+        ]
+    },
+    {
+        "id": "91c8d837.9a8ab8",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "reset motion",
+        "func": "msg.topic = \"v1/gateway/telemetry\";\n\nvar timestamp = Date.now();\n\nmsg.lastMotionStatus = 0;\n\nmsg.payload =  JSON.stringify({DEVICEID :[ \n    {\n      \"ts\": timestamp,\n      \"values\": {\n        \"motionState\" : 0,\n        \"presence\" : 0\n      }\n    }\n]});\n\nreturn msg;\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 870,
+        "y": 40,
+        "wires": [
+            [
+                "e12ef497.641028",
+                "9b287d31.23e1c",
+                "1a3fb86a.1cf708"
+            ]
+        ]
+    },
+    {
+        "id": "9d55d43e.8f29c8",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "set DeviceID",
+        "func": "var newPayload;\nnewPayload = msg.payload.replace(\"DEVICEID\", msg.devID);\nmsg.payload = newPayload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570,
+        "y": 740,
+        "wires": [
+            [
+                "6398739.e375d8c"
+            ]
+        ]
+    },
+    {
+        "id": "6398739.e375d8c",
+        "type": "json",
+        "z": "faacba70.9a1ff8",
+        "name": "",
+        "pretty": true,
+        "x": 770,
+        "y": 740,
+        "wires": [
+            [
+                "f903ae1b.8492c",
+                "346a5120.7cd10e"
+            ]
+        ]
+    },
+    {
+        "id": "cc4f0c7.87f50f",
+        "type": "mqtt out",
+        "z": "faacba70.9a1ff8",
+        "name": "BG-Gateway 00-01 (Demo)",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "c7b05f07.53f4b",
+        "x": 1040,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f903ae1b.8492c",
+        "type": "debug",
+        "z": "faacba70.9a1ff8",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 970,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "22566281.36020e",
+        "type": "link in",
+        "z": "faacba70.9a1ff8",
+        "name": "beaconPayload",
+        "links": [
+            "691e2146.f738e"
+        ],
+        "x": 115,
+        "y": 420,
+        "wires": [
+            [
+                "4fce96e.c692868",
+                "16cfd423.3902fc"
+            ]
+        ]
+    },
+    {
+        "id": "f7f5b043.bdd1",
+        "type": "comment",
+        "z": "faacba70.9a1ff8",
+        "name": "beacon data from restAPI",
+        "info": "",
+        "x": 170,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "42f483.85b26b7c",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "set topic for rate limit",
+        "func": "msg.topic = msg.devID;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 40,
+        "wires": [
+            [
+                "1d4bfff.b3159"
+            ]
+        ]
+    },
+    {
+        "id": "1d4bfff.b3159",
+        "type": "trigger",
+        "z": "faacba70.9a1ff8",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "payl",
+        "duration": "3",
+        "extend": true,
+        "units": "min",
+        "reset": "",
+        "name": "",
+        "x": 710,
+        "y": 40,
+        "wires": [
+            [
+                "91c8d837.9a8ab8"
+            ]
+        ]
+    },
+    {
+        "id": "16cfd423.3902fc",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "BMT - attributes",
+        "func": "msg.topic = \"v1/gateway/attributes\";\n\nmsg.attributes = msg.payload;\n\n//msg.devID = \"BMT-\" + msg.attributes.bdaddr;\n\nmsg.devID = \"MT.\" + msg.attributes.ibeacon[0].major + \".\" + msg.attributes.ibeacon[0].minor;\n\nmsg.payload =  JSON.stringify({DEVICEID : \n    {\n      \"uuid\": msg.attributes.ibeacon[0].uuid,\n      \"major\": msg.attributes.ibeacon[0].major,\n      \"minor\": msg.attributes.ibeacon[0].minor,\n      \"serial\": msg.attributes.serial,\n      \"bdaddr\": msg.attributes.bdaddr\n    }\n});\n\nreturn msg;\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 560,
+        "wires": [
+            [
+                "91b41fee.2f82e"
+            ]
+        ]
+    },
+    {
+        "id": "e885fc09.2725d",
+        "type": "link out",
+        "z": "faacba70.9a1ff8",
+        "name": "set resetMotionTrigger",
+        "links": [
+            "86029e7c.a1eb6"
+        ],
+        "x": 835,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "86029e7c.a1eb6",
+        "type": "link in",
+        "z": "faacba70.9a1ff8",
+        "name": "get resetMotionTrigger",
+        "links": [
+            "e885fc09.2725d",
+            "334938e6.38a678"
+        ],
+        "x": 340,
+        "y": 40,
+        "wires": [
+            [
+                "42f483.85b26b7c"
+            ]
+        ]
+    },
+    {
+        "id": "6fb5f252.698d2c",
+        "type": "link out",
+        "z": "faacba70.9a1ff8",
+        "name": "setPrecence",
+        "links": [
+            "ed9800bd.fbeb3"
+        ],
+        "x": 1415,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1ffb93db.eadf9c",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "presence = 1",
+        "func": "var newMsg = {};\nnewMsg.devId = msg.devID;\nnewMsg.presence = 1;\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1210,
+        "y": 460,
+        "wires": [
+            [
+                "6fb5f252.698d2c"
+            ]
+        ]
+    },
+    {
+        "id": "e12ef497.641028",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "presence = 0",
+        "func": "var newMsg = {};\nnewMsg.devId = msg.devID;\nnewMsg.presence = 0;\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1210,
+        "y": 420,
+        "wires": [
+            [
+                "6fb5f252.698d2c"
+            ]
+        ]
+    },
+    {
+        "id": "8bb20bec.9c6b78",
+        "type": "link in",
+        "z": "faacba70.9a1ff8",
+        "name": "set DeviceID",
+        "links": [
+            "1a3fb86a.1cf708",
+            "91b41fee.2f82e",
+            "a989a833.67cd58",
+            "6f942fd8.91e72"
+        ],
+        "x": 455,
+        "y": 740,
+        "wires": [
+            [
+                "9d55d43e.8f29c8"
+            ]
+        ]
+    },
+    {
+        "id": "1a3fb86a.1cf708",
+        "type": "link out",
+        "z": "faacba70.9a1ff8",
+        "name": "set DeviceID",
+        "links": [
+            "8bb20bec.9c6b78"
+        ],
+        "x": 1055,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "91b41fee.2f82e",
+        "type": "link out",
+        "z": "faacba70.9a1ff8",
+        "name": "set DeviceID",
+        "links": [
+            "8bb20bec.9c6b78"
+        ],
+        "x": 835,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4fce96e.c692868",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "MT_setDevId ",
+        "func": "\nmsg.telemetry = msg.payload;\nmsg.devID = \"MT.\" + msg.telemetry.ibeacon[0].major + \".\" + msg.telemetry.ibeacon[0].minor;\n\nreturn msg;\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "138e3ad1.f35a25"
+            ]
+        ]
+    },
+    {
+        "id": "1383ed7d.3a1be3",
+        "type": "function",
+        "z": "faacba70.9a1ff8",
+        "name": "BMT-setPayload",
+        "func": "\nvar time = Date.now();    \nmsg.topic = \"v1/gateway/telemetry\";\n\nif (msg.lastMotionStatus === 0 || msg.lastMotionStatus === null){\n\n    msg.lastMotionStatus = 1;\n\n        msg.payload =  JSON.stringify({DEVICEID :[ \n        {\n          \"ts\": time,\n          \"values\": {\n            \"rssi\": msg.telemetry.rssi,\n            \"battery\": msg.telemetry.battery,\n            \"accuracy\" : msg.telemetry.ibeacon[0].accuracy,\n            \"proximity\" : msg.telemetry.ibeacon[0].proximity,\n            \"measuredPower\" : msg.telemetry.ibeacon[0].measuredPower,\n            \"motionState\" : 1,\n            \"presence\" : 1\n          }\n        }\n        ]});\n\n} else {\n    \n        msg.payload =  JSON.stringify({DEVICEID :[ \n        {\n          \"ts\": time,\n          \"values\": {\n            \"rssi\": msg.telemetry.rssi,\n            \"battery\": msg.telemetry.battery,\n            \"accuracy\" : msg.telemetry.ibeacon[0].accuracy,\n            \"proximity\" : msg.telemetry.ibeacon[0].proximity,\n            \"measuredPower\" : msg.telemetry.ibeacon[0].measuredPower,\n            \"presence\" : 1\n          }\n        }\n        ]});\n    \n}\n\nreturn msg;\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 460,
+        "wires": [
+            [
+                "e885fc09.2725d",
+                "91b41fee.2f82e",
+                "1ffb93db.eadf9c",
+                "9b287d31.23e1c"
+            ]
+        ]
+    },
+    {
+        "id": "c40a710d.9e9b9",
+        "type": "link in",
+        "z": "faacba70.9a1ff8",
+        "name": "robotsIn",
+        "links": [],
+        "x": 275,
+        "y": 200,
+        "wires": [
+            [
+                "4fce96e.c692868"
+            ]
+        ]
+    },
+    {
+        "id": "346a5120.7cd10e",
+        "type": "mqtt out",
+        "z": "faacba70.9a1ff8",
+        "name": "BG-Gateway 05-01 (Demo)",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "84c4294e.246a88",
+        "x": 1040,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "a0de25b1.289de8",
+        "type": "function",
+        "z": "4697588.b2c87a8",
+        "name": "get JWT Token (demo-celgene)",
+        "func": "\nvar url_1 = global.get(\"urlBase\");\nvar urlparm = \"api/auth/login\";\n\nmsg.url = url_1 + urlparm;\n\nmsg.method = \"POST\";\n\nmsg.headers = {\n    Accept: \"application/json\"\n}\n\nmsg.payload = {\"username\":\"*@*.*\", \"password\":\"*\"};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "cb3c3b81.4c1ee8"
+            ]
+        ]
+    },
+    {
+        "id": "ea4c2ef5.afd7e",
+        "type": "inject",
+        "z": "4697588.b2c87a8",
+        "name": "startup",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "900",
+        "crontab": "",
+        "once": true,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "80e02fee.900ba",
+                "a0de25b1.289de8",
+                "99cca972.39cb48"
+            ]
+        ]
+    },
+    {
+        "id": "80e02fee.900ba",
+        "type": "change",
+        "z": "4697588.b2c87a8",
+        "name": "urlBase",
+        "rules": [
+            {
+                "t": "set",
+                "p": "urlBase",
+                "pt": "global",
+                "to": "http://localhost:8080/",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf8870b.c999a9",
+        "type": "change",
+        "z": "4697588.b2c87a8",
+        "name": "jwtToken",
+        "rules": [
+            {
+                "t": "set",
+                "p": "jwtToken",
+                "pt": "global",
+                "to": "payload.token",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 160,
+        "wires": [
+            [
+                "537dd50d.94070c"
+            ]
+        ]
+    },
+    {
+        "id": "cb3c3b81.4c1ee8",
+        "type": "http request",
+        "z": "4697588.b2c87a8",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "cf8870b.c999a9"
+            ]
+        ]
+    },
+    {
+        "id": "537dd50d.94070c",
+        "type": "debug",
+        "z": "4697588.b2c87a8",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 1050,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "99cca972.39cb48",
+        "type": "change",
+        "z": "4697588.b2c87a8",
+        "name": "setCustomerId (Sensolyze)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "customerId",
+                "pt": "global",
+                "to": "8b144650-22ef-11e8-b058-3f87bdf4f97c",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed9800bd.fbeb3",
+        "type": "link in",
+        "z": "e8059bf0.7836a8",
+        "name": "getDevID",
+        "links": [
+            "6fb5f252.698d2c"
+        ],
+        "x": 135,
+        "y": 240,
+        "wires": [
+            [
+                "8a04cfdf.a6254"
+            ]
+        ]
+    },
+    {
+        "id": "57441b55.1bea34",
+        "type": "inject",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "900",
+        "crontab": "",
+        "once": true,
+        "x": 210,
+        "y": 80,
+        "wires": [
+            [
+                "8bc180a0.9addd"
+            ]
+        ]
+    },
+    {
+        "id": "3c818f4d.cae75",
+        "type": "http request",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 630,
+        "y": 80,
+        "wires": [
+            [
+                "db2891f9.ae139"
+            ]
+        ]
+    },
+    {
+        "id": "8bc180a0.9addd",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "get customer BMT devices",
+        "func": "var id = global.get(\"customerId\");\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar url_2 = \"api/customer/\"+ id + \"/devices?limit=100&type=BMT-Tag\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Accept\" : \"application/json\",\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = {};\nmsg.topic = id;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "3c818f4d.cae75"
+            ]
+        ]
+    },
+    {
+        "id": "66ba05ab.a998ac",
+        "type": "debug",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1090,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "db2891f9.ae139",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "cleanPipe",
+        "func": "var newMsg = {};\nnewMsg.topic = msg.topic;\nnewMsg.payload = msg.payload;\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 840,
+        "y": 80,
+        "wires": [
+            [
+                "66ba05ab.a998ac",
+                "e85444fc.6f3608"
+            ]
+        ]
+    },
+    {
+        "id": "8a04cfdf.a6254",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "getDeviceIdbyName",
+        "func": "msg.topic = global.get(\"customerId\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 240,
+        "wires": [
+            [
+                "ba346593.eccc78"
+            ]
+        ]
+    },
+    {
+        "id": "1f8db61b.4652da",
+        "type": "inject",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "8a04cfdf.a6254"
+            ]
+        ]
+    },
+    {
+        "id": "7f88b247.4ef2bc",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "getDeviceId",
+        "func": "var items = msg.payload.data.length;\n//var items = \"hallo\";\n    \n    for (msg.payload.data, i = 0; i < items; i++){\n    \n        var object   = msg.payload.data[i];\n        \n        if (object.name == msg.devId){\n            \n            \n                    var myDevId = object.id.id;\n                    msg.deviceId = myDevId;  \n                    return msg;\n           \n        } else {\n            \n                    var myDevId  = 0; \n            \n        }\n       \n    \n    }\n    \nmsg.deviceId = myDevId;  \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 240,
+        "wires": [
+            [
+                "424a6038.34465",
+                "21a4870d.8501d8"
+            ]
+        ]
+    },
+    {
+        "id": "424a6038.34465",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "query asset from device Id",
+        "func": "var jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.deviceId;\n\nvar url_2 = \"api/relations/info?fromId=\"+ id + \"&fromType=DEVICE\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = { };\n    \nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "c55467fa.f073b8"
+            ]
+        ]
+    },
+    {
+        "id": "c55467fa.f073b8",
+        "type": "http request",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1030,
+        "y": 460,
+        "wires": [
+            [
+                "ef7aaf8.b39025"
+            ]
+        ]
+    },
+    {
+        "id": "ef7aaf8.b39025",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "set presence on asset",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nif (msg.payload[0]){\n\n    var assetId = msg.payload[0].to.id;\n    \n    var url_2 = \"/api/plugins/telemetry/ASSET/\" + assetId + \"/timeseries/values\";\n    \n    \n    msg.url = url_1 + url_2;\n    \n    msg.method = \"POST\";\n    \n    msg.headers = {\n        \"Content-Type\" : \"application/json\",\n        \"X-Authorization\" : \"Bearer \" + jwtToken\n    }\n}\n\nmsg.payload = {\n      \"presence\": msg.presence\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1240,
+        "y": 460,
+        "wires": [
+            [
+                "691c8b41.501354"
+            ]
+        ]
+    },
+    {
+        "id": "691c8b41.501354",
+        "type": "http request",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1470,
+        "y": 460,
+        "wires": [
+            [
+                "fdd2eebf.2ab86"
+            ]
+        ]
+    },
+    {
+        "id": "fdd2eebf.2ab86",
+        "type": "debug",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1610,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e7a9435f.fdc51",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "set presence as Device Attribute",
+        "func": "var jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar accessToken = msg.payload.credentialsId;\n\n\nvar url_2 = \"api/v1/\"+ accessToken + \"/attributes\";\n\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"POST\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\nmsg.payload = {\n      \"presence\": msg.presence\n    };\n\n    \nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690,
+        "y": 560,
+        "wires": [
+            [
+                "490a22bc.9716dc"
+            ]
+        ]
+    },
+    {
+        "id": "490a22bc.9716dc",
+        "type": "http request",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 970,
+        "y": 560,
+        "wires": [
+            [
+                "eaffbb18.b8ef58"
+            ]
+        ]
+    },
+    {
+        "id": "eaffbb18.b8ef58",
+        "type": "debug",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1130,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "21a4870d.8501d8",
+        "type": "function",
+        "z": "e8059bf0.7836a8",
+        "name": "getDeviceToken",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.deviceId;\n\nvar url_2 = \"api/device/\" + id + \"/credentials\";\n\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n/*\nmsg.payload =  JSON.stringify( \n    {\n      \"occ\": msg.occ\n    }\n);\n*/\n\nmsg.payload =  {};\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 260,
+        "y": 560,
+        "wires": [
+            [
+                "5edac635.98d308"
+            ]
+        ]
+    },
+    {
+        "id": "5edac635.98d308",
+        "type": "http request",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 450,
+        "y": 560,
+        "wires": [
+            [
+                "e7a9435f.fdc51"
+            ]
+        ]
+    },
+    {
+        "id": "938cccc8.83fbc",
+        "type": "comment",
+        "z": "e8059bf0.7836a8",
+        "name": "set presenceCode as Device Attribute",
+        "info": "",
+        "x": 330,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8f428aa6.f7e908",
+        "type": "comment",
+        "z": "e8059bf0.7836a8",
+        "name": "set presenceCode as Asset Telemetry",
+        "info": "",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e2ff0df4.8f11e",
+        "type": "function",
+        "z": "d65a8426.853ab8",
+        "name": "filter iBeacon ",
+        "func": "if (msg.payload.ibeacon && msg.payload.ibeacon.length > 0) {\n    \n return msg;   \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 790,
+        "y": 180,
+        "wires": [
+            [
+                "a17e62f4.d441e"
+            ]
+        ]
+    },
+    {
+        "id": "3f0d5f39.98a69",
+        "type": "debug",
+        "z": "d65a8426.853ab8",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "payload",
+        "x": 1290,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7b0d72d0.deb38c",
+        "type": "function",
+        "z": "d65a8426.853ab8",
+        "name": "filter iBeacon ",
+        "func": "if (msg.payload.ibeacon && msg.payload.ibeacon.length > 0) {\n    \n return msg;   \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a17e62f4.d441e",
+        "type": "switch",
+        "z": "d65a8426.853ab8",
+        "name": "filter motionUuid",
+        "property": "payload.ibeacon[0].uuid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "acfd065ec3c011e39bbe1a514932ac01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ebefd08370a247c89837e7b5634df524",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 980,
+        "y": 180,
+        "wires": [
+            [
+                "691e2146.f738e",
+                "3f0d5f39.98a69"
+            ],
+            [
+                "691e2146.f738e"
+            ]
+        ]
+    },
+    {
+        "id": "fae653c4.0d628",
+        "type": "comment",
+        "z": "faacba70.9a1ff8",
+        "name": "beacon data from robots",
+        "info": "",
+        "x": 270,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5d4dd859.353bc8",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "get timeseries data ",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\nmsg.presence = msg.payload.presence;\n\n\nvar id = msg.devId;\nvar keys = \"motionState\";  \nvar startTs = Date.now()- 300000;\nvar endTs = Date.now();\nvar interval = 1;\nvar limit = 100;\nvar agg = \"NONE\";\n\n\nvar url_2 = \"api/plugins/telemetry/DEVICE/\"+ id + \"/values/timeseries?keys=\" + keys + \"&startTs=\" + startTs + \"&endTs=\" + endTs + \"&interval=\" + interval + \"&limit=\" + limit+ \"&agg=\" + agg;\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\nmsg.payload = \"\";\n\nmsg.startTs = startTs;\nmsg.endTs = endTs;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1150,
+        "y": 340,
+        "wires": [
+            [
+                "3ddc523f.3eae2e"
+            ]
+        ]
+    },
+    {
+        "id": "3ddc523f.3eae2e",
+        "type": "http request",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1370,
+        "y": 360,
+        "wires": [
+            [
+                "488ab061.bc2fe",
+                "18ed4a87.dbe6c5"
+            ]
+        ]
+    },
+    {
+        "id": "18ed4a87.dbe6c5",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "calc Occupancy",
+        "func": "\nvar totalTime = msg.endTs - msg.startTs;\nvar totalMotionTime = 0;\n\nif (msg.payload.motionState){\n\n    var motion = msg.payload.motionState;\n    var points = motion.length;\n    \n    // define start-motion, Assumption: Motion telemtry only updated on change.....\n    \n    var firstMotion = 1;\n    if (motion[points-1].value == 1){\n        firstMotion = 0;\n    }\n    \n    // calc start and end phase\n    \n    totalMotionTime = (msg.endTs  - motion[0].ts) * motion[0].value;\n    msg.endAdd =  totalMotionTime;\n    msg.startCut = (motion[points-1].ts - msg.startTs);\n    \n    \n    totalMotionTime = totalMotionTime + ((motion[points-1].ts - msg.startTs) * firstMotion);\n\n    //totalTime = totalTime - (motion[points-1].ts - msg.startTs);\n\n  \n    \n    for (msg.payload.motion, i = 0; i < points-1; i++){\n    \n        var motionObj   = motion[i];\n        var motionObj2  = motion[i+1];\n    \n        totalMotionTime =  totalMotionTime + ((motionObj.ts - motionObj2.ts) * motionObj2.value);\n    \n    }\n    \n    \n    msg.occ_l5m = (Math.round((totalMotionTime/totalTime)*100))/100;\n\n    \n}\n\nelse {\n    \n    msg.occ_l5m = msg.presence;\n    \n\n}\nmsg.points = points;\nmsg.tmt = totalMotionTime;\nmsg.tt = totalTime;\n    \n    \n    \nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "a122d534.c9e768",
+                "569c97e5.372368"
+            ]
+        ]
+    },
+    {
+        "id": "ccacc9a1.25d9e8",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "get customer devices",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\n\nvar id = global.get(\"customerId\");\n\nvar url_1 = global.get(\"urlBase\");\nvar url_2 = \"api/customer/\"+ id + \"/devices?limit=100\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Accept\" : \"application/json\",\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = {\n\n  \"data\": [\n    {\n      \"additionalInfo\": \"string\",\n      \"createdTime\": 0,\n      \"customerId\": {\n        \"id\": \"string\"\n      },\n      \"id\": {\n        \"id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"tenantId\": {\n        \"id\": \"string\"\n      },\n      \"type\": \"BMT-Tag\"\n    }\n  ],\n  \"hasNext\": true,\n  \"nextPageLink\": {\n    \"idOffset\": \"string\",\n    \"limit\": 0,\n    \"textOffset\": \"string\",\n    \"textSearch\": \"string\",\n    \"textSearchBound\": \"string\"\n  }\n\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "9c917654.6b1568"
+            ]
+        ]
+    },
+    {
+        "id": "90067444.974fb8",
+        "type": "inject",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "l5m",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "ccacc9a1.25d9e8"
+            ]
+        ]
+    },
+    {
+        "id": "9c917654.6b1568",
+        "type": "http request",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "95c179e8.031e98"
+            ]
+        ]
+    },
+    {
+        "id": "9e541edf.d5ef6",
+        "type": "switch",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "filter BMT-Tag",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BMT-Tag",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 940,
+        "y": 180,
+        "wires": [
+            [
+                "26425d55.b90312"
+            ]
+        ]
+    },
+    {
+        "id": "4ba73c52.7a3524",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "++",
+        "func": "if ( (msg.i += 1) < msg.items.length ) return msg;\n",
+        "outputs": 1,
+        "x": 750,
+        "y": 220,
+        "wires": [
+            [
+                "95c179e8.031e98"
+            ]
+        ]
+    },
+    {
+        "id": "95c179e8.031e98",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "for each item",
+        "func": "if( msg.i     === undefined ) msg.i = 0;\nif( msg.items === undefined ) msg.items = msg.payload.data;\n\nmsg.payload = msg.items[ msg.i ];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 750,
+        "y": 180,
+        "wires": [
+            [
+                "4ba73c52.7a3524",
+                "9e541edf.d5ef6"
+            ]
+        ]
+    },
+    {
+        "id": "569c97e5.372368",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "set occupancy data on device",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\n//var id = msg.devId;\nvar accessToken = msg.accessToken;\n\nvar url_2 = \"api/v1/\" + accessToken + \"/telemetry\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"POST\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\n\nmsg.payload = {\n      \"occ_l5m\": msg.occ_l5m\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1050,
+        "y": 460,
+        "wires": [
+            [
+                "6ec78124.bff0b"
+            ]
+        ]
+    },
+    {
+        "id": "6ec78124.bff0b",
+        "type": "http request",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1270,
+        "y": 460,
+        "wires": [
+            [
+                "8ba3a468.b7f138"
+            ]
+        ]
+    },
+    {
+        "id": "a122d534.c9e768",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "query asset from device Id",
+        "func": "var jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.devId;\n\nvar url_2 = \"api/relations/info?fromId=\"+ id + \"&fromType=DEVICE\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = { };\n    \nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 620,
+        "y": 520,
+        "wires": [
+            [
+                "60677e20.cd1dc"
+            ]
+        ]
+    },
+    {
+        "id": "60677e20.cd1dc",
+        "type": "http request",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 850,
+        "y": 520,
+        "wires": [
+            [
+                "2039f0c2.c4f2f"
+            ]
+        ]
+    },
+    {
+        "id": "2039f0c2.c4f2f",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "set occupancy data on asset",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nif (msg.payload[0]){\n\n    var assetId = msg.payload[0].to.id;\n\n    \n    var url_2 = \"/api/plugins/telemetry/ASSET/\" + assetId + \"/timeseries/values\";\n    \n    \n    msg.url = url_1 + url_2;\n    \n    msg.method = \"POST\";\n    \n    msg.headers = {\n        \"Content-Type\" : \"application/json\",\n        \"X-Authorization\" : \"Bearer \" + jwtToken\n    }\n}\n\nmsg.payload = {\n      \"occ_l5m\": msg.occ_l5m\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1060,
+        "y": 520,
+        "wires": [
+            [
+                "59859d5e.2b4174"
+            ]
+        ]
+    },
+    {
+        "id": "59859d5e.2b4174",
+        "type": "http request",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1270,
+        "y": 520,
+        "wires": [
+            [
+                "6392b768.a89798"
+            ]
+        ]
+    },
+    {
+        "id": "8ba3a468.b7f138",
+        "type": "debug",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "payload",
+        "x": 1430,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6392b768.a89798",
+        "type": "debug",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "payload",
+        "x": 1430,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "326f0fd9.4216c",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "calc Occupancy (old)",
+        "func": "\nvar totalTime = msg.endTs - msg.startTs;\nvar totalMotionTime = 0;\n\nif (msg.payload.motion){\n\n    var motion = msg.payload.motion;\n    var points = motion.length;\n    \n    // define start-motion, Assumption: Motion telemtry only updated on change.....\n    \n    var firstMotion = 1;\n    if (motion[points-1].value == 1){\n        firstMotion = 0;\n    }\n    \n    // calc start and end phase\n    \n    totalMotionTime = (msg.endTs  - motion[0].ts) * motion[0].value;\n    //msg.endAdd =  totalMotionTime;   \n    //    totalMotionTime = totalMotionTime + ((motion[points-1].ts - msg.startTs) * firstMotion);\n    totalTime = totalTime - (motion[points-1].ts - msg.startTs);\n  \n    //msg.startCut = (motion[points-1].ts - msg.startTs);\n  \n    \n    for (msg.payload.motion, i = 0; i < points-1; i++){\n    \n        var motionObj   = motion[i];\n        var motionObj2  = motion[i+1];\n    \n        totalMotionTime =  totalMotionTime + ((motionObj.ts - motionObj2.ts) * motionObj2.value);\n    \n    }\n    \n    \n    msg.occ = (Math.round((totalMotionTime/totalTime)*100))/100;\n\n    \n}\n\nelse {\n    \n    msg.occ = 0;\n    \n\n}\nmsg.points = points;\nmsg.tmt = totalMotionTime;\nmsg.tt = totalTime;\n    \n    \n    \nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c22a3865.ed1158",
+        "type": "comment",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "set Occupancy as Device Telemetry",
+        "info": "",
+        "x": 720,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "74bcb041.08cfe",
+        "type": "comment",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "set Occupancy as Asset Telemetry",
+        "info": "",
+        "x": 480,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "89d492d1.124f5",
+        "type": "comment",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "get motion data for all BMT Devices",
+        "info": "",
+        "x": 420,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "44d099e4.e48598",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "get presenceCode Attribute ",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\nvar accessToken = msg.payload.credentialsId;\nmsg.accessToken = msg.payload.credentialsId;\n\nvar keys = \"presence\";  \n\nvar url_2 = \"api/v1/\"+ accessToken + \"/attributes?clientKeys=\" + keys;\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = {};\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "bf433ffb.07482"
+            ]
+        ]
+    },
+    {
+        "id": "26425d55.b90312",
+        "type": "function",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "getDeviceToken",
+        "func": "msg.devId = msg.payload.id.id;\nmsg.items={};\n\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.payload.id.id;\n\nvar url_2 = \"api/device/\" + id + \"/credentials\";\n\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n/*\nmsg.payload =  JSON.stringify( \n    {\n      \"occ\": msg.occ\n    }\n);\n*/\n\nmsg.payload =  {};\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1140,
+        "y": 180,
+        "wires": [
+            [
+                "ebf3501b.fbb8"
+            ]
+        ]
+    },
+    {
+        "id": "ebf3501b.fbb8",
+        "type": "http request",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1330,
+        "y": 180,
+        "wires": [
+            [
+                "44d099e4.e48598"
+            ]
+        ]
+    },
+    {
+        "id": "bf433ffb.07482",
+        "type": "http request",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 950,
+        "y": 320,
+        "wires": [
+            [
+                "5d4dd859.353bc8"
+            ]
+        ]
+    },
+    {
+        "id": "d624c809.bf7948",
+        "type": "comment",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "last 5 min. occ",
+        "info": "",
+        "x": 140,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "488ab061.bc2fe",
+        "type": "debug",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "active": true,
+        "console": false,
+        "complete": "payload",
+        "x": 1590,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f7422dff.9e82e",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "get timeseries data ",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\nmsg.accessToken = msg.payload.credentialsId;\n\n\nvar id = msg.devId;\nvar keys = \"occ_l5m\";  \nvar startTs = Date.now()- 3600000 ;\nvar endTs = Date.now();\nvar interval = 1;\nvar limit = 300;\nvar agg = \"NONE\";\n\n\nvar url_2 = \"api/plugins/telemetry/DEVICE/\"+ id + \"/values/timeseries?keys=\" + keys + \"&startTs=\" + startTs + \"&endTs=\" + endTs + \"&interval=\" + interval + \"&limit=\" + limit+ \"&agg=\" + agg;\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\nmsg.payload = \"\";\n\nmsg.startTs = startTs;\nmsg.endTs = endTs;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1190,
+        "y": 280,
+        "wires": [
+            [
+                "d6e9f79c.c31b88"
+            ]
+        ]
+    },
+    {
+        "id": "d6e9f79c.c31b88",
+        "type": "http request",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1390,
+        "y": 300,
+        "wires": [
+            [
+                "86a8442a.de0558",
+                "1414b19.768214e"
+            ]
+        ]
+    },
+    {
+        "id": "ca88594f.4fdd68",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "get customer devices",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\n\nvar id = global.get(\"customerId\");\n\nvar url_1 = global.get(\"urlBase\");\nvar url_2 = \"api/customer/\"+ id + \"/devices?limit=100\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Accept\" : \"application/json\",\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = {\n\n  \"data\": [\n    {\n      \"additionalInfo\": \"string\",\n      \"createdTime\": 0,\n      \"customerId\": {\n        \"id\": \"string\"\n      },\n      \"id\": {\n        \"id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"tenantId\": {\n        \"id\": \"string\"\n      },\n      \"type\": \"BMT-Tag\"\n    }\n  ],\n  \"hasNext\": true,\n  \"nextPageLink\": {\n    \"idOffset\": \"string\",\n    \"limit\": 0,\n    \"textOffset\": \"string\",\n    \"textSearch\": \"string\",\n    \"textSearchBound\": \"string\"\n  }\n\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "720d1c37.41e464"
+            ]
+        ]
+    },
+    {
+        "id": "91db26c9.2748a8",
+        "type": "inject",
+        "z": "f479bd17.19e48",
+        "name": "l1h",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "0 6-18 * * *",
+        "once": true,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "ca88594f.4fdd68"
+            ]
+        ]
+    },
+    {
+        "id": "720d1c37.41e464",
+        "type": "http request",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "d4b76841.9d2ee8",
+                "549b6886.9b2008"
+            ]
+        ]
+    },
+    {
+        "id": "e9c4a5f7.585b58",
+        "type": "switch",
+        "z": "f479bd17.19e48",
+        "name": "filter BMT-Tag",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BMT-Tag",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 980,
+        "y": 200,
+        "wires": [
+            [
+                "64c8092b.e20658"
+            ]
+        ]
+    },
+    {
+        "id": "d879c1c7.a983a",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "++",
+        "func": "if ( (msg.i += 1) < msg.items.length ) return msg;\n",
+        "outputs": 1,
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "d4b76841.9d2ee8"
+            ]
+        ]
+    },
+    {
+        "id": "d4b76841.9d2ee8",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "for each item",
+        "func": "if( msg.i     === undefined ) msg.i = 0;\nif( msg.items === undefined ) msg.items = msg.payload.data;\n\nmsg.payload = msg.items[ msg.i ];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "d879c1c7.a983a",
+                "e9c4a5f7.585b58"
+            ]
+        ]
+    },
+    {
+        "id": "64c8092b.e20658",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "getDeviceToken",
+        "func": "msg.devId = msg.payload.id.id;\nmsg.items={};\n\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.payload.id.id;\n\nvar url_2 = \"api/device/\" + id + \"/credentials\";\n\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\n\nmsg.payload =  {};\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1180,
+        "y": 200,
+        "wires": [
+            [
+                "4ade6910.d3ad68"
+            ]
+        ]
+    },
+    {
+        "id": "4ade6910.d3ad68",
+        "type": "http request",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1370,
+        "y": 200,
+        "wires": [
+            [
+                "f7422dff.9e82e"
+            ]
+        ]
+    },
+    {
+        "id": "2f53364c.a5017a",
+        "type": "comment",
+        "z": "f479bd17.19e48",
+        "name": "last hour occ",
+        "info": "",
+        "x": 130,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "86a8442a.de0558",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "calc last  hour occ",
+        "func": "var cumOcc_l5m = 0;\n        \nif (msg.payload.occ_l5m){\n\n    var occupancy = msg.payload.occ_l5m;\n    var points = occupancy.length;\n    \n    \n    for (msg.payload.occupancy, i = 0; i < points; i++){\n        \n        var occObj   = occupancy[i];\n        \n        cumOcc_l5m = cumOcc_l5m + parseFloat(occObj.value);\n    \n    }\n    \n    msg.occ_l1h = (Math.round((cumOcc_l5m/points)*100))/100;\n\n    \n}\nelse {\n    msg.occ_l1h = 0;\n    \n}\n\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 340,
+        "wires": [
+            [
+                "6265902f.a4",
+                "7c69ee82.e6856"
+            ]
+        ]
+    },
+    {
+        "id": "6265902f.a4",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "set occupancy data on device",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\n//var id = msg.devId;\nvar accessToken = msg.accessToken;\n\nvar url_2 = \"api/v1/\" + accessToken + \"/telemetry\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"POST\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\n\nmsg.payload = {\n      \"occ_l1h\": msg.occ_l1h\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 440,
+        "wires": [
+            [
+                "869bc922.624458"
+            ]
+        ]
+    },
+    {
+        "id": "869bc922.624458",
+        "type": "http request",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1230,
+        "y": 440,
+        "wires": [
+            [
+                "c400acbe.61613"
+            ]
+        ]
+    },
+    {
+        "id": "c400acbe.61613",
+        "type": "debug",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1370,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "7c69ee82.e6856",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "query asset from device Id",
+        "func": "var jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.devId;\n//var id = \"a975bea0-0d9e-11e8-b305-2f6628251ab4\";\n\nvar url_2 = \"api/relations/info?fromId=\"+ id + \"&fromType=DEVICE\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = { };\n    \nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 500,
+        "wires": [
+            [
+                "7afd086f.8f47f8"
+            ]
+        ]
+    },
+    {
+        "id": "7afd086f.8f47f8",
+        "type": "http request",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 810,
+        "y": 500,
+        "wires": [
+            [
+                "2b6f7f9c.14eed"
+            ]
+        ]
+    },
+    {
+        "id": "2b6f7f9c.14eed",
+        "type": "function",
+        "z": "f479bd17.19e48",
+        "name": "set occupancy data on asset",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nif (msg.payload[0]){\n\n    var assetId = msg.payload[0].to.id;\n    //msg.assetId = msg.payload[0].to.id;\n    //var assetId = \"0408c2f0-0da8-11e8-817b-2f6628251ab4\";\n    \n    var url_2 = \"/api/plugins/telemetry/ASSET/\" + assetId + \"/timeseries/values\";\n    \n    \n    msg.url = url_1 + url_2;\n    \n    msg.method = \"POST\";\n    \n    msg.headers = {\n        \"Content-Type\" : \"application/json\",\n        \"X-Authorization\" : \"Bearer \" + jwtToken\n    }\n}\n\nmsg.payload = {\n      \"occ_l1h\": msg.occ_l1h\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1020,
+        "y": 500,
+        "wires": [
+            [
+                "1d1abd5c.dd12b3"
+            ]
+        ]
+    },
+    {
+        "id": "1d1abd5c.dd12b3",
+        "type": "http request",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1230,
+        "y": 500,
+        "wires": [
+            [
+                "2107aca6.1c68e4"
+            ]
+        ]
+    },
+    {
+        "id": "2107aca6.1c68e4",
+        "type": "debug",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1370,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "68c1eb31.d9e554",
+        "type": "comment",
+        "z": "f479bd17.19e48",
+        "name": "set Occupancy as Device Telemetry",
+        "info": "",
+        "x": 740,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9e4d11ab.80b81",
+        "type": "comment",
+        "z": "f479bd17.19e48",
+        "name": "set Occupancy as Asset Telemetry",
+        "info": "",
+        "x": 460,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d5bfa447.95fc28",
+        "type": "comment",
+        "z": "f479bd17.19e48",
+        "name": "get l5m data for all BMT Devices",
+        "info": "",
+        "x": 490,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1414b19.768214e",
+        "type": "debug",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "payload",
+        "x": 1630,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b7266145.598cb",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "get timeseries data ",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\nmsg.accessToken = msg.payload.credentialsId;\n\n\n\n\nvar id = msg.devId;\nvar keys = \"occ_l5m\";  \n//var startTs = Date.now()- 43200000 ; //last 12h\n\n//set Start Date to 5:00am Zulu\n\nvar startTs = new Date();\nstartTs.setHours(5);\nstartTs.setMinutes(0);\nstartTs.setSeconds(0);\nstartTs.setMilliseconds(0);\nstartTs = startTs.getTime();\n\nvar endTs = Date.now();\nvar interval = 1;\nvar limit = 300;\nvar agg = \"NONE\";\n\n//make sure End Date ist after Start End (after midnight)\n\nif (endTs <= startTs){\n    endTs = startTs + 1;\n    \n}\n\n\n\n\nvar url_2 = \"api/plugins/telemetry/DEVICE/\"+ id + \"/values/timeseries?keys=\" + keys + \"&startTs=\" + startTs + \"&endTs=\" + endTs + \"&interval=\" + interval + \"&limit=\" + limit+ \"&agg=\" + agg;\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\nmsg.payload = \"\";\n\nmsg.startTs = startTs;\nmsg.endTs = endTs;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 810,
+        "y": 260,
+        "wires": [
+            [
+                "d1f111ab.5f31c"
+            ]
+        ]
+    },
+    {
+        "id": "d1f111ab.5f31c",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 990,
+        "y": 260,
+        "wires": [
+            [
+                "9d051504.9fce58"
+            ]
+        ]
+    },
+    {
+        "id": "21a143ee.c8909c",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "get customer devices",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\n\nvar id = global.get(\"customerId\");\n\nvar url_1 = global.get(\"urlBase\");\nvar url_2 = \"api/customer/\"+ id + \"/devices?limit=100\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Accept\" : \"application/json\",\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = {\n\n  \"data\": [\n    {\n      \"additionalInfo\": \"string\",\n      \"createdTime\": 0,\n      \"customerId\": {\n        \"id\": \"string\"\n      },\n      \"id\": {\n        \"id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"tenantId\": {\n        \"id\": \"string\"\n      },\n      \"type\": \"BMT-Tag\"\n    }\n  ],\n  \"hasNext\": true,\n  \"nextPageLink\": {\n    \"idOffset\": \"string\",\n    \"limit\": 0,\n    \"textOffset\": \"string\",\n    \"textSearch\": \"string\",\n    \"textSearchBound\": \"string\"\n  }\n\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "9433c94d.196a88"
+            ]
+        ]
+    },
+    {
+        "id": "6936f7d1.c9b288",
+        "type": "inject",
+        "z": "68b1d058.3256d",
+        "name": "l12h_bh_wd",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "*/30 6-18 * * *",
+        "once": true,
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "21a143ee.c8909c"
+            ]
+        ]
+    },
+    {
+        "id": "9433c94d.196a88",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 610,
+        "y": 120,
+        "wires": [
+            [
+                "4292b008.2174"
+            ]
+        ]
+    },
+    {
+        "id": "4767bdba.5a7d24",
+        "type": "switch",
+        "z": "68b1d058.3256d",
+        "name": "filter BMT-Tag",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BMT-Tag",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 1000,
+        "y": 120,
+        "wires": [
+            [
+                "24604504.c2429a"
+            ]
+        ]
+    },
+    {
+        "id": "929ac5aa.62ce78",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "++",
+        "func": "if ( (msg.i += 1) < msg.items.length ) return msg;\n",
+        "outputs": 1,
+        "x": 810,
+        "y": 160,
+        "wires": [
+            [
+                "4292b008.2174"
+            ]
+        ]
+    },
+    {
+        "id": "4292b008.2174",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "for each item",
+        "func": "if( msg.i     === undefined ) msg.i = 0;\nif( msg.items === undefined ) msg.items = msg.payload.data;\n\nmsg.payload = msg.items[ msg.i ];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 810,
+        "y": 120,
+        "wires": [
+            [
+                "929ac5aa.62ce78",
+                "4767bdba.5a7d24"
+            ]
+        ]
+    },
+    {
+        "id": "24604504.c2429a",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "getDeviceToken",
+        "func": "msg.devId = msg.payload.id.id;\nmsg.items={};\n\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.payload.id.id;\n\nvar url_2 = \"api/device/\" + id + \"/credentials\";\n\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\n\nmsg.payload =  {};\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 120,
+        "wires": [
+            [
+                "df5a7965.1ce5f8"
+            ]
+        ]
+    },
+    {
+        "id": "df5a7965.1ce5f8",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1390,
+        "y": 120,
+        "wires": [
+            [
+                "b7266145.598cb"
+            ]
+        ]
+    },
+    {
+        "id": "f09090b2.ff3eb",
+        "type": "catch",
+        "z": "e8059bf0.7836a8",
+        "name": "",
+        "scope": [
+            "7f88b247.4ef2bc"
+        ],
+        "x": 200,
+        "y": 40,
+        "wires": [
+            [
+                "8bc180a0.9addd"
+            ]
+        ]
+    },
+    {
+        "id": "9d051504.9fce58",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "prepare python payload",
+        "func": "//var newMsg = {};\n\n//msg.payload.occ_l5m = msg.payload.occ_l5m;\nmsg.payload.accessToken = msg.accessToken;\nmsg.payload.devId = msg.devId;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1190,
+        "y": 260,
+        "wires": [
+            [
+                "20c8ced1.c81002"
+            ]
+        ]
+    },
+    {
+        "id": "958f0489.abdb78",
+        "type": "json",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "pretty": false,
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "2e302a15.f93f66",
+                "c20541c5.96941",
+                "4b93b6e6.6b4ea8"
+            ]
+        ]
+    },
+    {
+        "id": "2e302a15.f93f66",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "set occ_today data on device",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nmsg.payload.occ_today = (Math.round((msg.payload.occ_today)*100))/100;\n\n\n//var id = msg.devId;\nvar accessToken = msg.payload.accessToken;\n\nvar url_2 = \"api/v1/\" + accessToken + \"/telemetry\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"POST\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\n\nmsg.payload = {\n      \"occ_today\": msg.payload.occ_today\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 460,
+        "wires": [
+            [
+                "22593973.b83ac6"
+            ]
+        ]
+    },
+    {
+        "id": "22593973.b83ac6",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1110,
+        "y": 460,
+        "wires": [
+            [
+                "fb6771c3.7090c"
+            ]
+        ]
+    },
+    {
+        "id": "fb6771c3.7090c",
+        "type": "debug",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1270,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c20541c5.96941",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "query asset from device Id",
+        "func": "var jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.payload.devId;\n\nmsg.occ_today = msg.payload.occ_today = (Math.round((msg.payload.occ_today)*100))/100;\n\n\nvar url_2 = \"api/relations/info?fromId=\"+ id + \"&fromType=DEVICE\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = { };\n    \nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 520,
+        "wires": [
+            [
+                "fdb16a3e.15c628"
+            ]
+        ]
+    },
+    {
+        "id": "fdb16a3e.15c628",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 710,
+        "y": 520,
+        "wires": [
+            [
+                "8908395f.1a5968"
+            ]
+        ]
+    },
+    {
+        "id": "8908395f.1a5968",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "set occ_today data on asset",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\n\nif (msg.payload[0]){\n\n    var assetId = msg.payload[0].to.id;\n    //msg.assetId = msg.payload[0].to.id;\n    //var assetId = \"0408c2f0-0da8-11e8-817b-2f6628251ab4\";\n    \n    var url_2 = \"/api/plugins/telemetry/ASSET/\" + assetId + \"/timeseries/values\";\n    \n    \n    msg.url = url_1 + url_2;\n    \n    msg.method = \"POST\";\n    \n    msg.headers = {\n        \"Content-Type\" : \"application/json\",\n        \"X-Authorization\" : \"Bearer \" + jwtToken\n    }\n}\n\nmsg.payload = {\n      \"occ_today\": msg.occ_today\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 520,
+        "wires": [
+            [
+                "6377a430.4ea11c"
+            ]
+        ]
+    },
+    {
+        "id": "6377a430.4ea11c",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1150,
+        "y": 520,
+        "wires": [
+            [
+                "db314dfd.53288"
+            ]
+        ]
+    },
+    {
+        "id": "db314dfd.53288",
+        "type": "debug",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1290,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "72d37e70.b2202",
+        "type": "comment",
+        "z": "68b1d058.3256d",
+        "name": "set Occupancy as Device Telemetry",
+        "info": "",
+        "x": 740,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f690808c.b1245",
+        "type": "comment",
+        "z": "68b1d058.3256d",
+        "name": "set Occupancy as Asset Telemetry",
+        "info": "",
+        "x": 420,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1c2cd931.359b87",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "get timeseries data ",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\nmsg.accessToken = msg.payload.credentialsId;\n\n\nvar id = msg.devId;\nvar keys = \"occ_l5m\";  \n\n//set Start Date to 5:00am Zulu\n\nvar startTs = new Date();\nstartTs.setHours(5);\nstartTs.setMinutes(0);\nstartTs.setSeconds(0);\nstartTs.setMilliseconds(0);\n\n//set End Date to 23:00am Zulu\n\nvar endTs = new Date();\nendTs.setHours(23);\nendTs.setMinutes(0);\nendTs.setSeconds(0);\nendTs.setMilliseconds(0);\n\n\nstartTs = startTs.getTime();\nendTs = endTs.getTime();\n\n\n//var endTs = Date.now();\nvar interval = 1;\nvar limit = 300;\nvar agg = \"NONE\";\n\n//make sure End Date ist after Start End (after midnight)\n\n/*if (endTs <= startTs){\n    endTs = startTs + 1;\n    \n}\n*/\n\nvar url_2 = \"api/plugins/telemetry/DEVICE/\"+ id + \"/values/timeseries?keys=\" + keys + \"&startTs=\" + startTs + \"&endTs=\" + endTs + \"&interval=\" + interval + \"&limit=\" + limit+ \"&agg=\" + agg;\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\nmsg.payload = \"\";\n\nmsg.startTs = startTs;\nmsg.endTs = endTs;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 990,
+        "y": 840,
+        "wires": [
+            [
+                "40d6905a.b3cc2"
+            ]
+        ]
+    },
+    {
+        "id": "40d6905a.b3cc2",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1170,
+        "y": 840,
+        "wires": [
+            [
+                "d1715920.4dbe08"
+            ]
+        ]
+    },
+    {
+        "id": "192fea1e.ceffe6",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "get customer devices",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\n\nvar id = global.get(\"customerId\");\n\nvar url_1 = global.get(\"urlBase\");\nvar url_2 = \"api/customer/\"+ id + \"/devices?limit=100\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Accept\" : \"application/json\",\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = {\n\n  \"data\": [\n    {\n      \"additionalInfo\": \"string\",\n      \"createdTime\": 0,\n      \"customerId\": {\n        \"id\": \"string\"\n      },\n      \"id\": {\n        \"id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"tenantId\": {\n        \"id\": \"string\"\n      },\n      \"type\": \"BMT-Tag\"\n    }\n  ],\n  \"hasNext\": true,\n  \"nextPageLink\": {\n    \"idOffset\": \"string\",\n    \"limit\": 0,\n    \"textOffset\": \"string\",\n    \"textSearch\": \"string\",\n    \"textSearchBound\": \"string\"\n  }\n\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 700,
+        "wires": [
+            [
+                "bb5a5173.6e135"
+            ]
+        ]
+    },
+    {
+        "id": "1c015c8b.c297f3",
+        "type": "inject",
+        "z": "68b1d058.3256d",
+        "name": "occ_lastBusinessDay_EOD",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "00 20 * * *",
+        "once": false,
+        "x": 200,
+        "y": 700,
+        "wires": [
+            [
+                "192fea1e.ceffe6"
+            ]
+        ]
+    },
+    {
+        "id": "bb5a5173.6e135",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 790,
+        "y": 700,
+        "wires": [
+            [
+                "eda97ec.70eda8"
+            ]
+        ]
+    },
+    {
+        "id": "447083b7.421dac",
+        "type": "switch",
+        "z": "68b1d058.3256d",
+        "name": "filter BMT-Tag",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BMT-Tag",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 1180,
+        "y": 700,
+        "wires": [
+            [
+                "fa47db68.1a25d8"
+            ]
+        ]
+    },
+    {
+        "id": "43ef1191.b44ae",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "++",
+        "func": "if ( (msg.i += 1) < msg.items.length ) return msg;\n",
+        "outputs": 1,
+        "x": 990,
+        "y": 740,
+        "wires": [
+            [
+                "eda97ec.70eda8"
+            ]
+        ]
+    },
+    {
+        "id": "eda97ec.70eda8",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "for each item",
+        "func": "if( msg.i     === undefined ) msg.i = 0;\nif( msg.items === undefined ) msg.items = msg.payload.data;\n\nmsg.payload = msg.items[ msg.i ];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 990,
+        "y": 700,
+        "wires": [
+            [
+                "43ef1191.b44ae",
+                "447083b7.421dac"
+            ]
+        ]
+    },
+    {
+        "id": "fa47db68.1a25d8",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "getDeviceToken",
+        "func": "msg.devId = msg.payload.id.id;\nmsg.items={};\n\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.payload.id.id;\n\nvar url_2 = \"api/device/\" + id + \"/credentials\";\n\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\n\nmsg.payload =  {};\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1380,
+        "y": 700,
+        "wires": [
+            [
+                "60199920.ded168"
+            ]
+        ]
+    },
+    {
+        "id": "60199920.ded168",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 1570,
+        "y": 700,
+        "wires": [
+            [
+                "1c2cd931.359b87"
+            ]
+        ]
+    },
+    {
+        "id": "d1715920.4dbe08",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "prepare python payload",
+        "func": "//var newMsg = {};\n\n//msg.payload.occ_l5m = msg.payload.occ_l5m;\nmsg.payload.accessToken = msg.accessToken;\nmsg.payload.devId = msg.devId;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1370,
+        "y": 840,
+        "wires": [
+            [
+                "8c4c2211.72b07"
+            ]
+        ]
+    },
+    {
+        "id": "e16534e5.8e3628",
+        "type": "json",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "pretty": false,
+        "x": 710,
+        "y": 940,
+        "wires": [
+            [
+                "c08a74a9.bc9d98",
+                "29319c0b.9aff64"
+            ]
+        ]
+    },
+    {
+        "id": "c08a74a9.bc9d98",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "set occ_today data on device",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nmsg.payload.occ_today = (Math.round((msg.payload.occ_today)*100))/100;\n\n\n//var id = msg.devId;\nvar accessToken = msg.payload.accessToken;\n\nvar url_2 = \"api/v1/\" + accessToken + \"/telemetry\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"POST\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\n\n\nmsg.payload = {\n      \"occ_lbd\": msg.payload.occ_today\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1070,
+        "y": 1040,
+        "wires": [
+            [
+                "803abdc2.4531b"
+            ]
+        ]
+    },
+    {
+        "id": "803abdc2.4531b",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1290,
+        "y": 1040,
+        "wires": [
+            [
+                "b41a0c15.b0c23"
+            ]
+        ]
+    },
+    {
+        "id": "b41a0c15.b0c23",
+        "type": "debug",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1450,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "29319c0b.9aff64",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "query asset from device Id",
+        "func": "var jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\nvar id = msg.payload.devId;\n\nmsg.occ_today = msg.payload.occ_today = (Math.round((msg.payload.occ_today)*100))/100;\n\n\nvar url_2 = \"api/relations/info?fromId=\"+ id + \"&fromType=DEVICE\";\n\nmsg.url = url_1 + url_2;\n\nmsg.method = \"GET\";\n\nmsg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"X-Authorization\" : \"Bearer \" + jwtToken\n}\n\nmsg.payload = { };\n    \nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 660,
+        "y": 1100,
+        "wires": [
+            [
+                "a78ba265.8943"
+            ]
+        ]
+    },
+    {
+        "id": "a78ba265.8943",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 890,
+        "y": 1100,
+        "wires": [
+            [
+                "bed24881.887d78"
+            ]
+        ]
+    },
+    {
+        "id": "bed24881.887d78",
+        "type": "function",
+        "z": "68b1d058.3256d",
+        "name": "set occ_today data on asset",
+        "func": "\nvar jwtToken = global.get(\"jwtToken\");\nvar url_1 = global.get(\"urlBase\");\n\n\nif (msg.payload[0]){\n\n    var assetId = msg.payload[0].to.id;\n    //msg.assetId = msg.payload[0].to.id;\n    //var assetId = \"0408c2f0-0da8-11e8-817b-2f6628251ab4\";\n    \n    var url_2 = \"/api/plugins/telemetry/ASSET/\" + assetId + \"/timeseries/values\";\n    \n    \n    msg.url = url_1 + url_2;\n    \n    msg.method = \"POST\";\n    \n    msg.headers = {\n        \"Content-Type\" : \"application/json\",\n        \"X-Authorization\" : \"Bearer \" + jwtToken\n    }\n}\n\nmsg.payload = {\n      \"occ_lbd\": msg.occ_today\n    };\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1120,
+        "y": 1100,
+        "wires": [
+            [
+                "abccfbc7.4fd208"
+            ]
+        ]
+    },
+    {
+        "id": "abccfbc7.4fd208",
+        "type": "http request",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 1330,
+        "y": 1100,
+        "wires": [
+            [
+                "dd62105f.edc6c"
+            ]
+        ]
+    },
+    {
+        "id": "dd62105f.edc6c",
+        "type": "debug",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1470,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "a027151e.ba54f8",
+        "type": "comment",
+        "z": "68b1d058.3256d",
+        "name": "set Occupancy as Device Telemetry",
+        "info": "",
+        "x": 920,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "5bb50b40.c464a4",
+        "type": "comment",
+        "z": "68b1d058.3256d",
+        "name": "set Occupancy as Asset Telemetry",
+        "info": "",
+        "x": 600,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "30a39ef5.ca2a52",
+        "type": "comment",
+        "z": "68b1d058.3256d",
+        "name": "EOD Procedure",
+        "info": "",
+        "x": 140,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "549b6886.9b2008",
+        "type": "debug",
+        "z": "f479bd17.19e48",
+        "name": "debug",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 790,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8c73ef42.7a90d",
+        "type": "link in",
+        "z": "4697588.b2c87a8",
+        "name": "renewToken",
+        "links": [
+            "8d069803.3f8f78",
+            "56d6a7af.fea558",
+            "200739d0.c65176"
+        ],
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "a0de25b1.289de8"
+            ]
+        ]
+    },
+    {
+        "id": "71d38992.b830c8",
+        "type": "catch",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "scope": [
+            "d4b76841.9d2ee8"
+        ],
+        "x": 140,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d069803.3f8f78",
+        "type": "link out",
+        "z": "f479bd17.19e48",
+        "name": "",
+        "links": [
+            "8c73ef42.7a90d"
+        ],
+        "x": 300,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "470b8e4.cdbf67",
+        "type": "catch",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "scope": [
+            "4292b008.2174",
+            "eda97ec.70eda8"
+        ],
+        "x": 100,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "56d6a7af.fea558",
+        "type": "link out",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "links": [
+            "8c73ef42.7a90d"
+        ],
+        "x": 235,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ea5950f5.954e2",
+        "type": "comment",
+        "z": "68b1d058.3256d",
+        "name": "Periodic Update",
+        "info": "",
+        "x": 140,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1fa4da59.1a3016",
+        "type": "catch",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "scope": [
+            "95c179e8.031e98"
+        ],
+        "x": 120,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "200739d0.c65176",
+        "type": "link out",
+        "z": "3c6b2ecc.9b50d2",
+        "name": "",
+        "links": [
+            "8c73ef42.7a90d"
+        ],
+        "x": 280,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "113e1e45.3d1792",
+        "type": "debug",
+        "z": "d65a8426.853ab8",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "payload",
+        "x": 370,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4b93b6e6.6b4ea8",
+        "type": "debug",
+        "z": "68b1d058.3256d",
+        "name": "",
+        "active": false,
+        "console": false,
+        "complete": "true",
+        "x": 1170,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "138e3ad1.f35a25",
+        "type": "Cache in",
+        "z": "faacba70.9a1ff8",
+        "name": "get lastMotionStatus",
+        "cache": "986144ea.b85468",
+        "keyType": "msg",
+        "keyProperty": "devID",
+        "valueType": "msg",
+        "valueProperty": "lastMotionStatus",
+        "useString": false,
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "1383ed7d.3a1be3"
+            ]
+        ]
+    },
+    {
+        "id": "ba346593.eccc78",
+        "type": "Cache in",
+        "z": "e8059bf0.7836a8",
+        "name": "getCustomerDevices",
+        "cache": "611c3519.eaac1c",
+        "keyType": "msg",
+        "keyProperty": "topic",
+        "valueType": "msg",
+        "valueProperty": "payload",
+        "useString": false,
+        "x": 600,
+        "y": 240,
+        "wires": [
+            [
+                "7f88b247.4ef2bc"
+            ]
+        ]
+    },
+    {
+        "id": "9b287d31.23e1c",
+        "type": "Cache out",
+        "z": "faacba70.9a1ff8",
+        "name": "save last Motion Status",
+        "cache": "986144ea.b85468",
+        "keyType": "msg",
+        "keyProperty": "devID",
+        "valueType": "msg",
+        "valueProperty": "lastMotionStatus",
+        "ttlType": "msg",
+        "ttlProperty": "",
+        "useString": false,
+        "x": 1250,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e85444fc.6f3608",
+        "type": "Cache out",
+        "z": "e8059bf0.7836a8",
+        "name": "customer-BMT-Devices",
+        "cache": "611c3519.eaac1c",
+        "keyType": "msg",
+        "keyProperty": "topic",
+        "valueType": "msg",
+        "valueProperty": "payload",
+        "ttlType": "msg",
+        "ttlProperty": "",
+        "useString": false,
+        "x": 1150,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "20c8ced1.c81002",
+        "type": "pythonshell in",
+        "z": "68b1d058.3256d",
+        "name": "occ_today_bh_wd",
+        "pyfile": "/usr/share/pyshared/sensolyze/occ_today_bh_wd.py",
+        "x": 450,
+        "y": 360,
+        "wires": [
+            [
+                "958f0489.abdb78"
+            ]
+        ]
+    },
+    {
+        "id": "8c4c2211.72b07",
+        "type": "pythonshell in",
+        "z": "68b1d058.3256d",
+        "name": "occ_today_bh_wd",
+        "pyfile": "/usr/share/pyshared/sensolyze/occ_today_bh_wd.py",
+        "x": 530,
+        "y": 940,
+        "wires": [
+            [
+                "e16534e5.8e3628"
+            ]
+        ]
+    }
+]
